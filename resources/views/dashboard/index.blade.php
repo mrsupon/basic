@@ -1,8 +1,8 @@
-@extends("dashboards.layouts.dashboards_master")
+@extends("dashboard.layouts.dashboards_master")
 
 @section("page_content")
 
-<div class="page-content">
+
     <div class="container-fluid">
 
         <!-- start page title -->
@@ -249,6 +249,6 @@
         <!-- end row -->
     </div>
 
-</div>
+
 
 @endsection
