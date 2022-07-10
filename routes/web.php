@@ -25,6 +25,7 @@ Route::controller(DashboardController::class)->group(function () {
 
 Route::controller(ProfileController::class)->group(function () {
     Route::get('/dashboard/profiles', 'index')->name('dashboard.profiles.index');
+    Route::get('/dashboard/profiles/{id}/edit', 'edit')->name('dashboard.profiles.edit');
 });
 
 Route::get('/dashboard', function () {
