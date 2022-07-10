@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::controller(DashboardController::class)->group(function () {
+    Route::get('/dashboard/logout', 'destroy')->name('dashboard.logout');
+});
+
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard.index');
 })->middleware(['auth','verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';

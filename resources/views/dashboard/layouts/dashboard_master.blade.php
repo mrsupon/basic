@@ -33,7 +33,7 @@
 
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
 
-        @include("dashboards.layouts.header")
+        @include("dashboard.layouts.header")
         <!-- Begin page -->
         <div id="layout-wrapper">
 
@@ -41,7 +41,7 @@
 
 
             <!-- ========== Left Sidebar Start ========== -->
-            @include("dashboards.layouts.left_sidebar")
+            @include("dashboard.layouts.left_sidebar")
             <!-- Left Sidebar End -->
 
             <!-- ============================================================== -->
@@ -52,7 +52,7 @@
 
                 <!-- End Page-content -->
 
-                @include("dashboards.layouts.footer")
+                @include("dashboard.layouts.footer")
 
             </div>
             <!-- end main content-->

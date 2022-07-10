@@ -1,4 +1,4 @@
-@extends("dashboards.layouts.dashboards_master")
+@extends("dashboard.layouts.dashboard_master")
 
 @section("page_content")
 
