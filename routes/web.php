@@ -20,12 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::controller(ProfileController::class)->group(function () {
-//    Route::get('/dashboard/profiles', 'index')->name('dashboard.profiles.index');
-//});
+Route::controller(ProfileController::class)->group(function () {
+    Route::get('/dashboard/profiles', 'index')->name('dashboard.profiles.index');
+});
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard.index');
 })->middleware(['auth','verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
