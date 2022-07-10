@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Dashboard\ProfileController;
-
-
+use App\Http\Controllers\Dashboard\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::controller(ProfileController::class)->group(function () {
-    Route::get('/dashboard/profiles', 'index')->name('dashboard.profiles.index');
+Route::controller(DashboardController::class)->group(function () {
+    Route::get('/dashboard/logout', 'destroy')->name('dashboard.logout');
 });
 
 Route::get('/dashboard', function () {
@@ -29,5 +27,3 @@ Route::get('/dashboard', function () {
 })->middleware(['auth','verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
-
-
