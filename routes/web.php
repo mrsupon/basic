@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\ProfileController;
 use App\Http\Controllers\Dashboard\DashboardController;
 
 /*
@@ -20,6 +21,10 @@ Route::get('/', function () {
 
 Route::controller(DashboardController::class)->group(function () {
     Route::get('/dashboard/logout', 'destroy')->name('dashboard.logout');
+});
+
+Route::controller(ProfileController::class)->group(function () {
+    Route::get('/dashboard/profiles', 'index')->name('dashboard.profiles.index');
 });
 
 Route::get('/dashboard', function () {
