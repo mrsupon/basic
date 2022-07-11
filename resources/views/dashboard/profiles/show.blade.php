@@ -8,7 +8,7 @@
             <div class="col-lg-6">
                 <div class="card">
                     <br>
-                    <center><img class="rounded-circle avatar-xl" src="{{ asset('dashboards/assets/images/users/avatar-1.jpg') }}" alt="Profile image cap"></center>
+                    <center><img class="rounded-circle avatar-xl" src="{{ !empty($users->profile_image)? url('dashboards/profiles/uploadedImages/'.$users->profile_image): url('dashboards/profiles/uploadedImages/no_image.jpg')  }}" alt="Profile image cap"></center>
                     <div class="card-body">
                         <h4 class="card-title">{{ $users->name }}</h4>
                         <p class="card-text">   Username: {{ $users->username }}<br>

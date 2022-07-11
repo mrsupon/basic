@@ -49,7 +49,7 @@
                             <div class="row mb-3">
                                 <label for="profile_image" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <img id="profile_image" name="profile_image" class="rounded avatar-xl" src="{{ asset('dashboards/assets/images/users/avatar-1.jpg') }}" alt="Image Format Error">
+                                    <img id="profile_image" name="profile_image" class="rounded avatar-xl" src="{{ !empty($users->profile_image)? url('dashboards/profiles/uploadedImages/'.$users->profile_image): url('dashboards/profiles/uploadedImages/no_image.jpg')  }}" alt="Image Format Error">
                                 </div>
                             </div>
                             <!-- end row -->

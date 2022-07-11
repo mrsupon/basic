@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
-    public function index()
+    public function show($id)
     {
-        $id = Auth::user()->id;
+        //$id = Auth::user()->id;
         $users = User::find($id);
-        return view('dashboard.profiles.index', compact('users'));
+        return view('dashboard.profiles.show', compact('users'));
     }
 
     public function edit($id)
@@ -38,7 +38,7 @@ class ProfileController extends Controller
         }
 
         $users->save();
-        return redirect()->route("dashboard.profiles.index");
+        return redirect()->route("dashboard.profiles.show",["id"=>$id]);
     }
 
 }
