@@ -26,7 +26,7 @@
         <link href="{{ asset('dashboards/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{ asset('dashboards/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
-
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
     </head>
 
     <body data-topbar="dark">
@@ -89,6 +89,22 @@
 
         <!-- App js -->
         <script src="{{ asset('dashboards/assets/js/app.js') }}"></script>
+
+        <!-- Toastr js -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script>
+         @if(Session::has('message'))
+         var type = "{{ Session::get('alert-type','info') }}";
+         var message = "{{ Session::get('message') }}" ;
+         switch(type){
+            case 'info':toastr.info(message);break;
+            case 'success':toastr.success(message);break;
+            case 'warning':toastr.warning(message);break;
+            case 'error':toastr.error(message);break;
+         }
+         @endif
+        </script>
+
     </body>
 
 </html>

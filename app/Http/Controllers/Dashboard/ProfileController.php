@@ -38,7 +38,12 @@ class ProfileController extends Controller
         }
 
         $users->save();
-        return redirect()->route("dashboard.profiles.show",["id"=>$id]);
+
+        $notification = array(
+            "message"=>"Profile Updated Successfully",
+            "alert-type"=>"info"
+        );
+        return redirect()->route("dashboard.profiles.show",["id"=>$id])->with($notification);
     }
 
 }
