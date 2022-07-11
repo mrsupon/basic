@@ -2,6 +2,7 @@
 
 @section("page_content")
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <div class="container-fluid">
         <div class="row">
@@ -10,11 +11,13 @@
                     <div class="card-body">
 
                         <h4 class="card-title">Edit Profile Page</h4>
-                        <form>
+                        <form method="POST" action="{{ route('dashboard.profiles.update',['id'=> $users->id]) }}" enctype="multipart/form-data"  >
+                            @csrf
+                            @method('PUT')
                             <div class="row mb-3">
                                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" id="name" value="{{ $user->name }}">
+                                    <input class="form-control" type="text" id="name" name="name" value="{{ $users->name }}">
                                 </div>
                             </div>
                             <!-- end row -->
@@ -22,7 +25,7 @@
                             <div class="row mb-3">
                                 <label for="username" class="col-sm-2 col-form-label">Username</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" id="username" value="{{ $user->username }}">
+                                    <input class="form-control" type="text" id="username" name="username" value="{{ $users->username }}">
                                 </div>
                             </div>
                             <!-- end row -->
@@ -30,15 +33,15 @@
                             <div class="row mb-3">
                                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" id="email" value="{{ $user->email }}">
+                                    <input class="form-control" type="text" id="email" name="email" value="{{ $users->email }}">
                                 </div>
                             </div>
                             <!-- end row -->
 
                             <div class="row mb-3">
-                                <label for="profile_image" class="col-sm-2 col-form-label">Profile image</label>
+                                <label for="profile_image_filename" class="col-sm-2 col-form-label">Profile image</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="file" id="profile_image" value="">
+                                    <input class="form-control" type="file" id="profile_image_filename" name="profile_image_filename" value="">
                                 </div>
                             </div>
                             <!-- end row -->
@@ -46,7 +49,7 @@
                             <div class="row mb-3">
                                 <label for="profile_image" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <img class="rounded avatar-xl" src="{{ asset('dashboards/assets/images/users/avatar-1.jpg') }}" alt="Profile image cap">
+                                    <img id="profile_image" name="profile_image" class="rounded avatar-xl" src="{{ asset('dashboards/assets/images/users/avatar-1.jpg') }}" alt="Image Format Error">
                                 </div>
                             </div>
                             <!-- end row -->
@@ -59,5 +62,17 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#profile_image_filename').change(function(e){
+                var reader = new FileReader();
+                reader.readAsDataURL(e.target.files['0']);
+                reader.onload = function(e){
+                    $('#profile_image').attr('src', e.target.result);
+                }
 
+            });
+        });
+
+    </script>
 @endsection
