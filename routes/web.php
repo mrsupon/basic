@@ -16,7 +16,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
 
 Route::controller(DashboardController::class)->group(function () {

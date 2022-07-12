@@ -33,7 +33,7 @@ class ProfileController extends Controller
         $imageFile = $request->file('profile_image_filename');
         if($imageFile){
             $imageFilename = date('YmdHis').$imageFile->getClientOriginalName();
-            $imageFile->move(public_path('dashboards/profiles/uploadedImages'),$imageFilename);
+            $imageFile->move(public_path('backend/profiles/uploadedImages'),$imageFilename);
             $users['profile_image'] = $imageFilename ;
         }
 
