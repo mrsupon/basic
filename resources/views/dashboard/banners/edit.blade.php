@@ -49,7 +49,7 @@
                         <div class="row mb-3">
                             <label for="banner_image" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10">
-                                <img id="banner_image" name="banner_image" class="rounded avatar-xl" src="{{ !empty($banners->image)? url('frontend/banners/uploadedImages/'.$banners->image): url('frontend/banners/uploadedImages/no_image.jpg')  }}" alt="Image Format Error">
+                                <img id="banner_image" name="banner_image" class="rounded avatar-xl" src="{{ !empty($banners->image)? url('backend/banners/uploadedImages/'.$banners->image): url('backend/banners/uploadedImages/no_image.jpg')  }}" alt="Image Format Error">
                             </div>
                         </div>
                         <!-- end row -->
