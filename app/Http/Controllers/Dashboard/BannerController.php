@@ -16,9 +16,25 @@ class BannerController extends Controller
 
     public function update(Request $request, $id)
     {
-        echo $request->title."</br>" ;
-        echo $request->content."</br>" ;
-        echo $request->video_url."</br>" ;
-        echo $request->image."</br>" ;
+        $imageFile = $request->file('banner_image_filename');
+        $imageFilename = "";
+        if($imageFile){
+            $imageFilename = date('YmdHis').$imageFile->getClientOriginalName();
+            $imageFile->move(public_path('backend/banners/uploadedImages'),$imageFilename);
+        }
+
+        Banner::findOrFail($id)->update([
+            'title'=>$request->title,
+            'content'=>$request->content,
+            'video_url'=>$request->video_url,
+            'image'=>$imageFilename,
+        ]);
+
+        $notification = array(
+            "message"=>"Banner Updated Successfully",
+            "alert-type"=>"info"
+        );
+        return redirect()->back()->with($notification);
+
     }
 }

@@ -1,4 +1,4 @@
-<!-- frontend main master layout -->
+<!-- home main master layout -->
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
@@ -36,7 +36,7 @@
         <!-- Scroll-top-end-->
 
         <!-- header-area -->
-        @include("frontend.layouts.header")
+        @include("home.layouts.header")
         <!-- header-area-end -->
 
         <!-- main-area -->
@@ -48,7 +48,7 @@
 
 
         <!-- Footer-area -->
-        @include("frontend.layouts.footer")
+        @include("home.layouts.footer")
         <!-- Footer-area-end -->
 
 

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Dashboard\AboutController;
 use App\Http\Controllers\Dashboard\BannerController;
 use App\Http\Controllers\Dashboard\ProfileController;
 use App\Http\Controllers\Dashboard\DashboardController;
@@ -16,8 +18,12 @@ use App\Http\Controllers\Dashboard\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
+// Route::get('/', function () {
+//     return view('home.index');
+// });
+
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home.index');
 });
 
 Route::controller(DashboardController::class)->group(function () {
@@ -33,6 +39,11 @@ Route::controller(ProfileController::class)->group(function () {
 Route::controller(BannerController::class)->group(function () {
     Route::get('/dashboard/banners/{id}/edit', 'edit')->name('dashboard.banners.edit');
     Route::put('/dashboard/banners/{id}', 'update')->name('dashboard.banners.update');
+});
+
+Route::controller(AboutController::class)->group(function () {
+    Route::get('/dashboard/abouts/{id}/edit', 'edit')->name('dashboard.abouts.edit');
+
 });
 
 Route::get('/dashboard', function () {
