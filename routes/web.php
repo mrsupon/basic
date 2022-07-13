@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\BannerController;
 use App\Http\Controllers\Dashboard\ProfileController;
 use App\Http\Controllers\Dashboard\DashboardController;
 
@@ -27,6 +28,11 @@ Route::controller(ProfileController::class)->group(function () {
     Route::get('/dashboard/profiles/{id}', 'show')->name('dashboard.profiles.show');
     Route::get('/dashboard/profiles/{id}/edit', 'edit')->name('dashboard.profiles.edit');
     Route::put('/dashboard/profiles/{id}', 'update')->name('dashboard.profiles.update');
+});
+
+Route::controller(BannerController::class)->group(function () {
+    Route::get('/dashboard/banners/{id}/edit', 'edit')->name('dashboard.banners.edit');
+    Route::put('/dashboard/banners/{id}', 'update')->name('dashboard.banners.update');
 });
 
 Route::get('/dashboard', function () {
