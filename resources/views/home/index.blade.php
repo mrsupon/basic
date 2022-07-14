@@ -3,11 +3,11 @@
 @section("page_content")
 
             <!-- banner-area -->
-            @include("home.banner")
+            @include("home.banner_area")
             <!-- banner-area-end -->
 
             <!-- about-area -->
-            @include("home.about")
+            @include("home.about_area")
             <!-- about-area-end -->
 
             <!-- services-area -->
@@ -212,7 +212,7 @@
             <!-- work-process-area-end -->
 
             <!-- portfolio-area -->
-            @include("home.portfolio")
+            @include("home.portfolio_area")
             <!-- portfolio-area-end -->
 
             <!-- partner-area -->

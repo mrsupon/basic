@@ -24,6 +24,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home.index');
+    Route::get('/about_page', 'show_about_page')->name('home.about_page');
 });
 
 Route::controller(DashboardController::class)->group(function () {
