@@ -24,14 +24,22 @@
                         <li>
                             <a href="javascript: void(0);" class="has-arrow">Banner</a>
                             <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="{{ route('dashboard.banners.edit',['id'=>1]) }}">Edit Banner</a></li>
+                                <li><a href="{{ route('dashboard.banners.edit',['id'=>1]) }}">Edit</a></li>
                             </ul>
                         </li>
 
                         <li>
                             <a href="javascript: void(0);" class="has-arrow">About</a>
                             <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="{{ route('dashboard.abouts.edit',['id'=>1]) }}">Edit About</a></li>
+                                <li><a href="{{ route('dashboard.abouts.edit',['id'=>1]) }}">Edit</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow">About Icons</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ route('dashboard.abouts.icons.create') }}">Add</a></li>
                             </ul>
                         </li>
                     </ul>

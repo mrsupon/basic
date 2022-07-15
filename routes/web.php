@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\AboutController;
 use App\Http\Controllers\Dashboard\BannerController;
 use App\Http\Controllers\Dashboard\ProfileController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\About\IconController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,11 @@ Route::controller(BannerController::class)->group(function () {
 Route::controller(AboutController::class)->group(function () {
     Route::get('/dashboard/abouts/{id}/edit', 'edit')->name('dashboard.abouts.edit');
     Route::put('/dashboard/abouts/{id}', 'update')->name('dashboard.abouts.update');
+});
+
+Route::controller(IconController::class)->group(function () {
+    Route::get('/dashboard/abouts/icons/create', 'create')->name('dashboard.abouts.icons.create');
+
 });
 
 Route::get('/dashboard', function () {
