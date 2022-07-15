@@ -44,7 +44,7 @@ Route::controller(BannerController::class)->group(function () {
 
 Route::controller(AboutController::class)->group(function () {
     Route::get('/dashboard/abouts/{id}/edit', 'edit')->name('dashboard.abouts.edit');
-
+    Route::put('/dashboard/abouts/{id}', 'update')->name('dashboard.abouts.update');
 });
 
 Route::get('/dashboard', function () {

@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="card-title">Edit Banner Page</h4>
+                    <h4 class="card-title">Edit Banner Data</h4>
                     <form method="POST" action="{{ route('dashboard.banners.update',['id'=> $banners->id]) }}" enctype="multipart/form-data"  >
                         @csrf
                         @method('PUT')
@@ -49,7 +49,7 @@
                         <div class="row mb-3">
                             <label for="banner_image" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10">
-                                <img id="banner_image" name="banner_image" class="rounded avatar-xl" src="{{ !empty($banners->image)? url('backend/banners/uploadedImages/'.$banners->image): url('backend/banners/uploadedImages/no_image.jpg')  }}" alt="Image Format Error">
+                                <img id="banner_image" name="banner_image" class="rounded avatar-xl" src="{{ !empty($banners->image)? url('backend/banners/uploadedImages/'.$banners->image): url('backend/banners/uploadedImages/no_image.png')  }}" alt="Image Format Error">
                             </div>
                         </div>
                         <!-- end row -->

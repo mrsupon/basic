@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
 
 class BannerController extends Controller
 {
@@ -17,10 +18,15 @@ class BannerController extends Controller
     public function update(Request $request, $id)
     {
         $imageFile = $request->file('banner_image_filename');
+        $message="";
         $imageFilename = "";
         if($imageFile){
-            $imageFilename = date('YmdHis').$imageFile->getClientOriginalName();
-            $imageFile->move(public_path('backend/banners/uploadedImages'),$imageFilename);
+            $imageFilename = hexdec(uniqid()).".".$imageFile->getClientOriginalExtension();
+            Image::make($imageFile)->resize(636,852)->save('backend/banners/uploadedImages/'.$imageFilename);
+            $message="Banner Updated Successfully";
+        }
+        else{
+            $message="Banner Updated Without Image Successfully";
         }
 
         Banner::findOrFail($id)->update([
@@ -31,7 +37,7 @@ class BannerController extends Controller
         ]);
 
         $notification = array(
-            "message"=>"Banner Updated Successfully",
+            "message"=>$message,
             "alert-type"=>"info"
         );
         return redirect()->back()->with($notification);

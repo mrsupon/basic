@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Models\About;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,10 +13,17 @@ class HomeController extends Controller
     {
         $bannerId= 1;
         $banners = Banner::find($bannerId);
-        return view('home.index', compact('banners'))->with('active','index');
+
+        $aboutId= 1;
+        $abouts = About::find($aboutId);
+
+        return view('home.index', compact('banners','abouts'))->with('active','index');
     }
     public function show_about_page()
     {
-        return view('home.about_page')->with('active','about_page');
+        $aboutId= 1;
+        $abouts = About::find($aboutId);
+
+        return view('home.about_page', compact('abouts'))->with('active','about_page');
     }
 }
